@@ -1,0 +1,7 @@
+<% if user_signed_in? %>
+<%= link_to "Logout", destroy_user_session_path, method: :delete %>
+<% else %>
+<%= link_to "Login", user_session_path, method: :post %>
+<%end%>
+<h1> Hi, <%=current_user.email %>! </h1>
+<p> View your todo lists <%= link_to "here", user_todo_lists_path(@user.id) %></p>
